@@ -1,0 +1,58 @@
+
+utilita ffmpeg, snizovani bitrate u videa pri zachovani rozliseni videa
+
+ffmpeg -i orig_682kbs.mp4 -b:v 341k -c:a copy out_341kbs.mp4
+
+ffmpeg -i orig_682kbs.mp4 -b:v 227k -c:a copy out_227kbs.mp4
+ffmpeg -i orig_682kbs.mp4 -b:v 170k -c:a copy out_170kbs.mp4
+ffmpeg -i orig_682kbs.mp4 -b:v 85k -c:a copy out_85kbs.mp4
+ffmpeg -i orig_682kbs.mp4 -b:v 42k -c:a copy out_42kbs.mp4
+ffmpeg -i orig_682kbs.mp4 -b:v 21k -c:a copy out_21kbs.mp4
+
+-b:v 2M = 2mbs
+-b:v 1500k = 1.5mbs
+apod.
+funguje na Ubuntu
+
+------------------------------------------------------------------------
+ffmpeg -i orig_682kbs.mp4 -c:v libx264 -crf 28 -c:a copy cca_pulka_bitrate.mp4
+
+nejvysi kvalita pri co nejmensi velikodti -crf 28
+na ubuntu
+vhodne na staticke veci, prednasky apod.
+
+
+
+-------------------------------------------------------------------
+polovina bitrate davka pro Windows
+
+@echo off
+setlocal enabledelayedexpansion
+
+set "INPUT=vstup.mp4"
+set "OUTPUT=vystup_polovina.mp4"
+
+:: Zjištění datového toku videa v bitech za sekundu pomocí MediaInfo
+for /f "tokens=*" %%i in ('mediainfo --Inform^="Video;%%BitRate%%" "%INPUT%"') do set BITRATE=%%i
+
+:: Pokud video nemá vyplněný přesný bitrate, zkusíme zjistit celkový bitrate souboru
+if "%BITRATE%"=="" (
+    for /f "tokens=*" %%i in ('mediainfo --Inform^="General;%%BitRate%%" "%INPUT%"') do set BITRATE=%%i
+)
+
+:: Pokud se nepodařilo zjistit nic, skript se ukončí s chybou
+if "%BITRATE%"=="" (
+    echo Chyba: Nepodarilo se zjistit bitrate souboru.
+    pause
+    exit /b
+)
+
+:: Výpočet poloviny původního bitratu
+set /a HALF_BITRATE=%BITRATE% / 2
+
+:: Spuštění ffmpeg s vypočítanou hodnotou
+ffmpeg -i "%INPUT%" -b:v %HALF_BITRATE% -c:a copy "%OUTPUT%"
+
+echo Puvodni bitrate: %BITRATE% bps
+echo Novy bitrate: %HALF_BITRATE% bps
+pause

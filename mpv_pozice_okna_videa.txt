@@ -1,0 +1,51 @@
+
+toto nejlip funguje na mpv v cmd.exe ( na linuxu diky X11 trochu blbne )
+
+mpv --geometry=-0+0 in.mp4  - ( prehrava v pravem hornim rohu, prichyti okno do rohu )
+
+mpv --geometry=-0-0 in.mp4 ( prichyti do praveho dolniho rohu )
+
+mpv --geometry=+0+0 in.mp4 ( levy horni roh )
+
+mpv --geometry=+0-0 in.mp4 ( levy dolni roh )
+
+----------------------------------------------------------------------------------------------
+
+mpv --geometry=400-0+0 in.mp4 ( pravi horni roh a velikost okna 400 )
+mpv --geometry=200-0+0 in.mp4 ( pravi horni roh a velikost okna 200 )
+mpv --geometry=900-0+0 in.mp4 ( pravi horni roh a velikost okna 900 coz je vetsi nez puvodni video ! )
+------------------------------------------------------------------------------------------------------------
+
+mpv --window-scale=0.5 --geometry=-0+0 in.mp4 
+
+mpv --geometry=540x682-0+0 in.mp4 ( natvrodo vniti velikost okna 540x682 )
+
+ZDE
+mpv --autofit=25% --geometry=-0+0 in.mp4 ( jakoliv velke video zabere presne 25 % obrazovky a pravy horni roh )
+----------------------------------------------------------------------------------------------------
+
+mpv --autofit=25% --geometry=-100+50 in.mp4
+video pravy hodni roh a s mezerou 100 pixelu od praveho okraje a 50 pixelu do horniho okraje
+---------------------------------------------------------------------------------------------------
+
+mpv --window-scale=0.5 --geometry=+75%-75% in.mp4
+chci aby levy horni roh videa zacinal presne v 75% sirky obrazovky a 10% vysky obrazovky
+
+
+mpv --window-scale=0.5 --geometry=-10%-10% in.mp4
+pravi dolni roh ale z posunem 10% od obou okraju obrazovky
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
