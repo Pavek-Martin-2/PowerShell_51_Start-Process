@@ -7,13 +7,22 @@ $kod1 = @"
 mpv.com -osd-level=0 --msg-level=all=no --window-scale=1.0 --geometry=+0+20% -loop -mute "video_1.mp4"
 "@
 <#
-poznamka v videu "video_1.mp4", v prehravaci mpv je klavesa "[" a klavesa "]" urcena pro zrychleni 
+poznamka k videu "video_1.mp4", v prehravaci mpv je klavesa "[" a klavesa "]" urcena pro zrychleni 
 a nebo spomaleni rychlosti prehravani dale pak klavesa "Backspace" vraci puvodni (dafaultni) rychlost 1.0
-takovej muj mozna postreh , video obliceje neni prilis kvalitni, je to video krery bylo kdysi vyrendrovani
-jeste ve starym 3DS4 studiu ktery bezelo jeste pod systemem Ms-Dos, takze ma nizky rozliseni ale i presto ta
+takovej muj mozna postreh, video obliceje neni prilis kvalitni, je to video krery bylo kdysi vyrendrovani
+jeste ve starym 3DS4 studiu ktery bezelo jeste pod systemem MS-Dos, takze ma nizky rozliseni ale i presto ta
 iluze jak je  vydet tam stale funguje co to znamena ...
 ve smyslu toho ze si tam clovek vlastne nejni az tak podobnej ...
-soubor "video_1.mp4" ma rozliseni 640x400 pixelu a bitrate (potazmo kvaliu ) ma ( dle mediainfo ) 298 kb/s
+soubor "video_1.mp4" ma rozliseni 640x400 pixelu a bitrate (potazmo kvalitu ) ma ( dle mediainfo ) 298 kb/s
+
+PS: koukal jsem a jeste u bitrate 37kbs ( a na rychlosti v podstate nezalezi ) je "smyslovej kam" vyditelnej
+u 18kbs uz asi nejni
+
+mpv -fs -osd-level=0 -loop -speed=3.0 video_1_37kbs.mp4
+REM tady jeste jo 
+
+mpv -fs -osd-level=0 -loop -speed=3.0 video_1_18kbs.mp4
+REM ale tady uz to poznat nejni
 
 prikazy postupne snizovani kvality u souboru "video_1.mp4" vzdycky o polovinu v kazdem kroku
 
@@ -63,3 +72,4 @@ Start-Process powershell.exe -NoNewWindow -ArgumentList "-command `"$kod4`""
 
 echo "toto je hlavni skript"
 sleep 5
+

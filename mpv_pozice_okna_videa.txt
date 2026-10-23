@@ -28,7 +28,7 @@ mpv --autofit=25% --geometry=-100+50 in.mp4
 video pravy hodni roh a s mezerou 100 pixelu od praveho okraje a 50 pixelu do horniho okraje
 ---------------------------------------------------------------------------------------------------
 
-mpv --window-scale=0.5 --geometry=+75%-75% in.mp4
+mpv --window-scale=0.5 --geometry=+75%-10% in.mp4
 chci aby levy horni roh videa zacinal presne v 75% sirky obrazovky a 10% vysky obrazovky
 
 
